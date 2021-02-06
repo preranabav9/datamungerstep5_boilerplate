@@ -15,8 +15,19 @@ package com.stackroute.datamunger.query;
 public class DataTypeDefinitions {
 
 	//method stub
-	public static Object getDataType(String input) {
 	
+	public static String getDataType(String s) {
+		if(s.matches("[0-9]+")) {
+			return "java.lang.Integer";
+		}else if(s.matches("[0-9]+.[0-9]+")){
+			return "java.lang.Double";
+		}else if(s.matches("[0-9]{2}[/][0-9]{2}[/][0-9]{4}")||s.matches("[0-9]{2}-[a-z]{3}-[0-9]{2}")||s.matches("[0-9]{2}-[a-z]{3}-[0-9]{4}")||s.matches("[0-9]{2}-[a-z]{3,9}-[0-9]{2}")||s.matches("[0-9]{2}-[a-z]{3,9}-[0-9]{4}")||s.matches("[0-9]{4}-[0-9]{2}-[0-9]{2}")){
+			return "java.util.Date";
+		}else if(s.isEmpty()){
+			return "java.lang.Object";
+		}else {
+			return "java.lang.String";
+		}
 		// checking for Integer
 		
 		// checking for floating point numbers
@@ -35,8 +46,9 @@ public class DataTypeDefinitions {
 		
 		// checking for date format yyyy-mm-dd
 		
-		return null;
+		
 	}
+
 	
 
 	
