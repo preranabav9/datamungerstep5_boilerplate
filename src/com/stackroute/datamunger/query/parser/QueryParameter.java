@@ -8,66 +8,91 @@ import java.util.List;
  * fields, Query Type
  * */
 
+import java.util.ArrayList;
+import java.util.List;
+/* 
+ * This class will contain the elements of the parsed Query String such as conditions,
+ * logical operators,aggregate functions, file name, fields group by fields, order by
+ * fields, Query Type
+ * */
 public class QueryParameter {
-	private String fileName;
+
+	private String file;
 	private String baseQuery;
-	private List<Restriction> restrictions;
-	private List<String> logicalOperators;
-	private List<String> fields;
-	private List<AggregateFunction> aggregateFunctions;
-	private List<String> groupByFields;
-	private List<String> orderByFields;
+	private List<Restriction> restrictions = new ArrayList<Restriction>();
+	private List<String> fields = new ArrayList<String>();
+	private List<String> logicalOperators = new  ArrayList<String>();
+	private List<String> orderByFields = new ArrayList<String>();
+	private List<String> groupByFields = new ArrayList<String>();
+	private List<AggregateFunction> aggregateFunctions = new ArrayList<AggregateFunction>();
 	private String QUERY_TYPE;
+
+	
 	
 	public String getFileName() {
-		return fileName;
+		return file;
 	}
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
+	
+	public void setFileName(final String file) {
+		this.file=file;
 	}
+
 	public String getBaseQuery() {
 		return baseQuery;
 	}
-	public void setBaseQuery(String baseQuery) {
-		this.baseQuery = baseQuery;
+	
+	public void setBaseQuery(final String baseQuery) {
+		this.baseQuery=baseQuery;
 	}
+
 	public List<Restriction> getRestrictions() {
 		return restrictions;
 	}
-	public void setRestrictions(List<Restriction> restrictions) {
-		this.restrictions = restrictions;
+	
+	public void setRestrictions(final List<Restriction> restrictions) {
+		this.restrictions=restrictions;
 	}
+
 	public List<String> getLogicalOperators() {
 		return logicalOperators;
 	}
-	public void setLogicalOperators(List<String> logicalOperators) {
-		this.logicalOperators = logicalOperators;
-	}
+	
+	public void setLogicalOperators(final List<String> logicalOperators) {
+		this.logicalOperators=logicalOperators;
+	}	
+	
+
 	public List<String> getFields() {
 		return fields;
 	}
-	public void setFields(List<String> fields) {
-		this.fields = fields;
+	
+	public void setFields(final List<String> fields) {
+		this.fields=fields;
 	}
+
 	public List<AggregateFunction> getAggregateFunctions() {
 		return aggregateFunctions;
 	}
-	public void setAggregateFunctions(List<AggregateFunction> aggregateFunctions) {
-		this.aggregateFunctions = aggregateFunctions;
+	
+	public void setAggregateFunctions(final List<AggregateFunction> aggregateFunctions) {
+		this.aggregateFunctions=aggregateFunctions;
 	}
+
 	public List<String> getGroupByFields() {
 		return groupByFields;
 	}
-	public void setGroupByFields(List<String> groupByFields) {
-		this.groupByFields = groupByFields;
+	
+	public void setGroupByFields(final List<String> groupFields) {
+		this.groupByFields=groupFields;
 	}
+
 	public List<String> getOrderByFields() {
 		return orderByFields;
 	}
-	public void setOrderByFields(List<String> orderByFields) {
-		this.orderByFields = orderByFields;
+	
+	public void setOrderByFields(final List<String> orderByFields) {
+		this.orderByFields=orderByFields;
 	}
-
 
 	public String getQUERY_TYPE() {
 		return QUERY_TYPE;
@@ -76,9 +101,6 @@ public class QueryParameter {
 	public void setQUERY_TYPE(String QUERY_TYPE) {
 		this.QUERY_TYPE=QUERY_TYPE;
 	}
-
-
-	
 
 	
 }
